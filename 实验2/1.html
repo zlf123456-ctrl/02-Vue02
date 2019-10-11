@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="box">
+    <button @click="subtract()">-</button>
+    <input type="text"  size="1"  v-model="count">
+    <button @click="add()">+</button>
+</div>
+<script>
+    new Vue({
+      el:'#box',
+    data(){
+    return{
+       count:'0'
+          }
+       },
+    methods:{
+       add(){
+    this.count++;
+    },
+    subtract(){
+    this.count--;
+    }
+    },
+    watch:{
+         count(){
+    if(this.count<=0){
+    alert('输入的不合法！')
+    this.count=0;
+    }else{
+    this.count=1;
+    }
+        }
+      }
+    })
+</script>
+</body>
+</html>
